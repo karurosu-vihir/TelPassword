@@ -39,19 +39,21 @@
     <button onclick="submitPwd()">Submit</button>
 
     <script>
-        const tg = window.Telegram.WebApp;
-        tg.ready();
-
         function submitPwd() {
             const value = document.getElementById('pwd').value;
             if (!value) {
                 tg.showAlert("Please enter a value");
                 return;
             }
-        tg.showAlert("About to send: " + value.length + " chars"); // debug
-        tg.sendData(value);
-        tg.close();
-    }
+            try {
+                tg.sendData(value);
+                tg.showAlert("sendData succeeded"); // debug
+            } catch (e) {
+                tg.showAlert("sendData FAILED: " + e.message); // debug
+                return;
+            }
+    tg.close();
+}
     </script>
 </body>
 </html>
