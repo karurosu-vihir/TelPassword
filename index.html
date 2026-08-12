@@ -39,6 +39,9 @@
     <button onclick="submitPwd()">Submit</button>
 
     <script>
+        const tg = window.Telegram.WebApp;
+        tg.ready();
+        
         function submitPwd() {
             const value = document.getElementById('pwd').value;
             if (!value) {
