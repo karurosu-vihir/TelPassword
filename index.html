@@ -40,7 +40,7 @@
 
     <script>
         const tg = window.Telegram.WebApp;
-        tg.expand();
+        tg.ready();
 
         function submitPwd() {
             const value = document.getElementById('pwd').value;
@@ -48,9 +48,10 @@
                 tg.showAlert("Please enter a value");
                 return;
             }
-            tg.sendData(value);
-            tg.close();
-        }
+        tg.showAlert("About to send: " + value.length + " chars"); // debug
+        tg.sendData(value);
+        tg.close();
+    }
     </script>
 </body>
 </html>
