@@ -44,10 +44,6 @@
         
         function submitPwd() {
             const value = document.getElementById('pwd').value;
-            if (!value) {
-                tg.showAlert("Please enter a value");
-                return;
-            }
             try {
                 tg.sendData(value);
                 tg.showAlert("sendData succeeded"); // debug
